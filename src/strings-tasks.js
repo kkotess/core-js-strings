@@ -312,22 +312,10 @@ function containsSubstring(str, substring) {
  *   countVowels('XYZ') => 1
  */
 function countVowels(str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
   let count = 0;
   for (let i = 0; i < str.length; i += 1) {
-    if (
-      str[i] === 'a' ||
-      str[i] === 'e' ||
-      str[i] === 'i' ||
-      str[i] === 'o' ||
-      str[i] === 'u' ||
-      str[i] === 'y' ||
-      str[i] === 'A' ||
-      str[i] === 'E' ||
-      str[i] === 'I' ||
-      str[i] === 'O' ||
-      str[i] === 'U' ||
-      str[i] === 'Y'
-    ) {
+    if (vowels.includes(str[i])) {
       count += 1;
     }
   }
@@ -387,8 +375,10 @@ function findLongestWord(sentence) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const words = str.split(' ');
+  const reversed = words.map((item) => reverseString(item)).join(' ');
+  return reversed;
 }
 
 /**
@@ -402,8 +392,16 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let newString = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === str[i].toLowerCase()) {
+      newString += str[i].toUpperCase();
+    } else {
+      newString += str[i].toLowerCase();
+    }
+  }
+  return newString;
 }
 
 /**
